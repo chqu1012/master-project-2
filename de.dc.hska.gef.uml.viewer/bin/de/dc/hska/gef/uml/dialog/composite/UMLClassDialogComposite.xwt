@@ -1,0 +1,104 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="de.dc.hska.gef.uml.dialog.composite.UMLClassDialogComposite"
+	xmlns:p1="clr-namespace:org.eclipse.jface.viewers"
+	xmlns:j="clr-namespace:de.dc.hska.gef.uml.dialog.composite.model"
+	x:DataContext="{StaticResource model}">
+	<Composite.layout>
+		<GridLayout numColumns="2" />
+	</Composite.layout>
+	<x:Composite.Resources>
+		<j:UMLBean x:Key="data" />
+	</x:Composite.Resources>
+	<Label text="Class Name:">
+		<Label.layoutData>
+			<GridData horizontalAlignment="RIGHT" />
+		</Label.layoutData>
+	</Label>
+	<Text x:Style="BORDER" x:Name="classNameText" text="{Binding  Path=name}">
+		<Text.layoutData>
+			<GridData grabExcessHorizontalSpace="true"
+				horizontalAlignment="FILL" />
+		</Text.layoutData>
+	</Text>
+	<Composite>
+		<Composite.layout>
+			<GridLayout numColumns="2" />
+		</Composite.layout>
+		<Composite.layoutData>
+			<GridData horizontalSpan="2" horizontalAlignment="FILL"
+				grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"
+				verticalAlignment="FILL" />
+		</Composite.layoutData>
+		<TableViewer x:Style="BORDER | FULL_SELECTION" x:Name="attributeViewer">
+			<TableViewer.table headerVisible="true"
+				linesVisible="true">
+				<TableViewer.table.layoutData>
+					<GridData grabExcessHorizontalSpace="true"
+						grabExcessVerticalSpace="true" horizontalAlignment="FILL"
+						verticalAlignment="FILL" />
+				</TableViewer.table.layoutData>
+			</TableViewer.table>
+			<TableViewerColumn text="Attributename" width="270" />
+			<TableViewer.contentProvider>
+				<p1:ArrayContentProvider />
+			</TableViewer.contentProvider>
+			<TableViewer.labelProvider>
+				<p1:LabelProvider />
+			</TableViewer.labelProvider>
+		</TableViewer>
+		<Composite>
+			<Composite.layoutData>
+				<GridData horizontalAlignment="FILL" verticalAlignment="FILL" />
+			</Composite.layoutData>
+			<Composite.layout>
+				<GridLayout marginHeight="0" marginWidth="0" />
+			</Composite.layout>
+			<Button text="Add" x:Name="addAttributeButton" SelectionEvent="onAddAttributeButtonSelection">
+				<Button.layoutData>
+					<GridData horizontalAlignment="FILL" />
+				</Button.layoutData>
+			</Button>
+		</Composite>
+	</Composite>
+	<Composite>
+		<Composite.layout>
+			<GridLayout numColumns="2" />
+		</Composite.layout>
+		<Composite.layoutData>
+			<GridData horizontalSpan="2" horizontalAlignment="FILL"
+				grabExcessHorizontalSpace="true" grabExcessVerticalSpace="true"
+				verticalAlignment="FILL" />
+		</Composite.layoutData>
+		<TableViewer x:Style="BORDER | FULL_SELECTION" x:Name="methodViewer">
+			<TableViewer.table headerVisible="true"
+				linesVisible="true">
+				<TableViewer.table.layoutData>
+					<GridData grabExcessHorizontalSpace="true"
+						grabExcessVerticalSpace="true" horizontalAlignment="FILL"
+						verticalAlignment="FILL" />
+				</TableViewer.table.layoutData>
+			</TableViewer.table>
+			<TableViewerColumn text="Methodname" width="270" />
+			<TableViewer.contentProvider>
+				<p1:ArrayContentProvider />
+			</TableViewer.contentProvider>
+			<TableViewer.labelProvider>
+				<p1:LabelProvider />
+			</TableViewer.labelProvider>
+		</TableViewer>
+		<Composite>
+			<Composite.layoutData>
+				<GridData horizontalAlignment="FILL" verticalAlignment="FILL" />
+			</Composite.layoutData>
+			<Composite.layout>
+				<GridLayout marginHeight="0" marginWidth="0" />
+			</Composite.layout>
+			<Button text="Add" x:Name="addMethodButton" SelectionEvent="onAddMethodButtonSelection">
+				<Button.layoutData>
+					<GridData horizontalAlignment="FILL" />
+				</Button.layoutData>
+			</Button>
+		</Composite>
+	</Composite>
+</Composite>
+<!-- Forms API -->
